@@ -1,5 +1,10 @@
-module.exports = () => (req,res,next)=>{
-    //TODO import and decorate services
+const ads = require('../services/ads')
 
-    req.storage = {}
+module.exports = () => (req,res,next)=>{
+   
+    req.storage = {
+        ...ads
+    }
+
+    next();
 }
