@@ -1,4 +1,4 @@
-const Ads = require("../models/User");
+const Ads = require("../models/Ads");
 
 async function getAllAds() {
     return Ads.find().populate("owner").lean();

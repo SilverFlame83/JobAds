@@ -12,10 +12,11 @@ router.post("/create", isUser(), async (req, res) => {
       headline: req.body.headline,
       location: req.body.location,
       companyName: req.body.companyName,
-      companyDescription: req.companyDescription,
-      owner: req.user,
+      companyDescription: req.body.companyDescription,
+      owner: req.user._id,
     };
 
+  
     await req.storage.createAd(adsData);
 
     res.redirect('/')
