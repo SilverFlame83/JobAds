@@ -1,11 +1,12 @@
 const router = require("express").Router();
 
-router.get('/', async(req,res)=>{
+router.get("/", async (req, res) => {
     const ads = await req.storage.getAllAds();
 
-    //console.log(ads);
+    console.log(ads);
 
-    res.render('home', {ads})
-})
+    res.render("home", { ads });
+  
+});
 
 module.exports = router;

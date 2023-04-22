@@ -10,7 +10,7 @@ async function getAllAds() {
 async function createAd(adsData) {
   const ad = new Ads(adsData);
 
-  ad.save();
+  await ad.save();
 
   return ad;
 }

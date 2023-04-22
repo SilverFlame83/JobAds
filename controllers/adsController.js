@@ -16,7 +16,6 @@ router.post("/create", isUser(), async (req, res) => {
       owner: req.user._id,
     };
 
-  
     await req.storage.createAd(adsData);
 
     res.redirect('/')
@@ -29,7 +28,7 @@ router.post("/create", isUser(), async (req, res) => {
             headline: req.body.headline,
             location: req.body.location,
             companyName: req.body.companyName,
-            companyDescription: req.companyDescription
+            companyDescription: req.body.companyDescription
         }
     }
     res.render('create', ctx)
