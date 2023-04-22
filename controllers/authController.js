@@ -16,7 +16,7 @@ router.post(
   body("email").trim().isEmail().withMessage("Invalid email"),
   body("password")
     .isLength({ min: 5 })
-    .withMessage("Password should be ata least 5 characters long!"),
+    .withMessage("Password should be at least 5 characters long!"),
   body("rePass").custom((value, { req }) => {
     if (value != req.body.password) {
       throw new Error("Passwords don't match!");

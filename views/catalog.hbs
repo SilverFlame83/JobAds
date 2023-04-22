@@ -4,7 +4,11 @@
   </article>
 
   <!--If there are job ads in the database, show each one-->
-  <article class="all-ads-card">
+  {{#if ads}}
+  {{#each ads}}
+  {{> offer}}
+  
+  {{!-- <article class="all-ads-card">
     <article class="all-ads-card-image">
       <!-- Do not forget to change the path to the image -->
       <img src="/static/img/job-icon1.png" alt="job-icon" />
@@ -46,12 +50,14 @@
     <article class="all-ads-card-buttons">
       <a href="#" class="btn-details">Details</a>
     </article>
-  </article>
+  </article> --}}
 
   <!--If there are still no job ads in the database display:-->
-  <!--<article class="not-available-ads">
-                    <h1>No ads created yet.</h1>
-                    <h2>Join and find your perfect workers.</h2>
-                </article>-->
-
+  {{/each}}
+  {{else}}
+  <article class="not-available-ads">
+    <h1>No ads created yet.</h1>
+    <h2>Join and find your perfect workers.</h2>
+  </article>
+{{/if}}
 </section>
