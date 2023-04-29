@@ -90,8 +90,29 @@ router.post("/edit/:id", isUser(), async (req, res) => {
       },
     };
 
-    res.render('edit', ctx)
+    res.render("edit", ctx);
   }
+});
+
+router.get("/search", async (req, res) => {
+  res.render("search");
+});
+
+router.post("/search", async (req, res) => {
+  const ads = await req.storage.getAllAds();
+  const email = req.body.email;
+  const result = [];
+
+  console.log(email)
+
+  for(let ad of ads){
+    if(ad.owner.email.toLowerCase() === email){
+      result.push(ad)
+    }
+  }
+
+  console.log(result)
+  res.render('search', {result})
 });
 
 module.exports = router;
